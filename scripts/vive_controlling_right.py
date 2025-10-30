@@ -1,3 +1,4 @@
+# Developed based on Mr.Osterberg C++ 
 import rospy
 import moveit_commander
 from moveit_msgs.msg import Constraints, JointConstraint
@@ -73,9 +74,6 @@ class RobotArm:
     def VR_triggerCallback(self, msg):
         self.controllerState.trigger = msg.data
 
-    # Callbacks for menu and grip have been removed
-
-    # --- Methods from old Robot class, now part of RobotArm ---
     def setPoseTarget(self):
         self.move_group_p.clearPoseTargets()
         self.move_group_p.setStartStateToCurrentState()
@@ -118,14 +116,12 @@ def main():
     robotPlanningGroup = rospy.get_param("~robot_planning_group", "manipulator")
     rightEndLinkName = rospy.get_param("~right_end_link_name", "wrist_3_link")
 
-    # Parameters for left controller and numberOfArms are removed
     rospy.loginfo(" Initializing for UR10e.")
 
     # --- Setup MoveIt ---
     move_group = moveit_commander.MoveGroupCommander(robotPlanningGroup)
 
     # --- Set up the single robot arm ---
-    # We no longer need the Robot class wrapper
     right_arm = RobotArm(move_group)
     right_arm.init(node_handle, rightEndLinkName, rightControllerName)
 
