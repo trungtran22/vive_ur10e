@@ -4,3 +4,5 @@
 - The python version of this project for the VIVE publisher and subscriber are also included in the package. More information about python bindings of OpenVR can be found here [link](https://github.com/cmbruns/pyopenvr)
 - More information about installation of VIVE SDK can be found in this repositoriy [vive_ros](https://github.com/Machine-Jonte/vive_ros) of Mr. Österberg
 - This version only publishes the pose of right controller of HTC Vive via topic /vive_rightPose
+### Update: 
+- Added C++ version for publisher for only right controller
