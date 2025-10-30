@@ -1,8 +1,4 @@
-// Written by Jonathan Österberg. This is the file that is added to the vive_ros package.
-// If questions, contact me on jonte_ost@live.com
-
-// Original code by Jonathan Österberg, simplified to only publish
-// right controller pose and trigger.
+// Original code by Mr. Jonathan Österberg, this version is simplified for 1 controller
 
 #include <iostream>
 #include "vive_pose.h" // Assumed to define VR_ControlHandler, VRC_RIGHT, etc.
