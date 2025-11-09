@@ -18,18 +18,6 @@ IVRSystem* vr_pointer = NULL;
 //  * @param pose The input pose from SteamVR.
 //  * @return The remapped pose.
 
-geometry_msgs::Pose Remap(geometry_msgs::Pose pose)
-{
-    double x = pose.position.x;
-    double y = pose.position.y;
-    double z = pose.position.z;
-
-    pose.position.x = -z;
-    pose.position.y = -x;
-    pose.position.z = y;
-
-    return pose;
-}
 
 /*
  * @brief Creates a geometry_msgs::PoseStamped message from OpenVR pose data.
@@ -46,14 +34,10 @@ geometry_msgs::PoseStamped MakeGeometryMsgFromData(HmdVector3_t controller_posit
     controller_msg.pose.position.y = controller_position.v[1];
     controller_msg.pose.position.z = controller_position.v[2];
 
-    // Apply the coordinate remapping
-    controller_msg.pose = Remap(controller_msg.pose);
-
-    // Remap orientation from SteamVR to the new frame
     controller_msg.pose.orientation.w = controller_orientation.w;
-    controller_msg.pose.orientation.x = -controller_orientation.z;
-    controller_msg.pose.orientation.y = -controller_orientation.x;
-    controller_msg.pose.orientation.z = controller_orientation.y; 
+    controller_msg.pose.orientation.x = controller_orientation.x;
+    controller_msg.pose.orientation.y = controller_orientation.y;
+    controller_msg.pose.orientation.z = controller_orientation.z; 
 
     return controller_msg;
 }
@@ -128,7 +112,7 @@ void GetControllerState(VR_ControlHandler &controlHandler)
                     HmdQuaternion_t controller_orientation = GetRotation(trackedDevicePose.mDeviceToAbsoluteTracking);
                     
                     // Use "base" as the frame_id, as in the original code
-                    controlHandler.pController[VRC_RIGHT]->pose.msg = MakeGeometryMsgFromData(controller_position, controller_orientation, "base");
+                    controlHandler.pController[VRC_RIGHT]->pose.msg = MakeGeometryMsgFromData(controller_position, controller_orientation, "vive_world");
                 }
                 
                 // Since we found the right controller, we can stop looping
