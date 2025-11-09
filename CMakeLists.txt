@@ -99,18 +99,6 @@ add_executable(vive_pose
   src/vive_publisher.cpp
 )
 
-## link all
-target_link_libraries(vive_node
-  ${catkin_LIBRARIES}
-  ${OPENGL_LIBRARIES} ## (OpenGL specific)
-  ${GLEW_LIBRARIES} ## (OpenGL specific)
-  ${VULKAN_LIBRARY} ## (Vulkan specific)
-  ${SDL2_LIBRARIES}
-  ${OPENVR_LIBRARIES}
-  ${CMAKE_DL_LIBS}
-  ${EXTRA_LIBS}
-)
-
 ## link all (VIVE pose)
 target_link_libraries(vive_pose
   ${catkin_LIBRARIES}
