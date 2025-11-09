@@ -40,7 +40,7 @@ roslaunch vive_ur10e server_vr.launch
 ```
 Run Publisher:
 ```
-roslaunch vive_ur10e vive_pose
+rosrun vive_ur10e vive_pose
 ```
 Init MoveIT:
 ```
