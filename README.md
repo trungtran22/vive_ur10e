@@ -10,6 +10,11 @@ You will need to adjust these values in the code for the calibration. It's based
     t.transform.translation.y = -1.0
     t.transform.translation.z = -0.8
 ```
+### For other URs (UR3, UR5, ..etc) or other type of manipulator:
+Another version is provided for control all other UR Robot with different Reachability. Adjust the SCALE_FACTOR in the code vive_scale_ur.py and run:
+```
+rosrun vive_ur10e vive_scale_ur.py
+```
 ### Installation VIVE SDK [vive_ros](https://github.com/robosavvy/vive_ros):
 ```
   cd ~
