@@ -6,5 +6,5 @@
 
   <env name="LD_LIBRARY_PATH" value="$(env LD_LIBRARY_PATH):$(env HOME)/.local/share/Steam/ubuntu12_32/steam-runtime/amd64/lib/x86_64-linux-gnu:$(env HOME)/.steam/steam/steamapps/common/SteamVR/bin/linux64:$(env HOME)/.steam/steam/steamapps/common/SteamVR/drivers/lighthouse/bin/linux64"/>
 
-  <node name="server_vr" pkg="my_vive" type="launch_servervr.sh" output="screen" required="true"/>
+  <node name="server_vr" pkg="vive_ur10e" type="launch_servervr.sh" output="screen" required="true"/>
 </launch>
