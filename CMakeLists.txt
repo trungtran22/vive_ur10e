@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(my_vive)
+project(vive_ur10e)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
@@ -91,13 +91,6 @@ catkin_package()
 include_directories(
   include
   ${catkin_INCLUDE_DIRS}
-)
-
-# VIVE node:
-add_executable(vive_node
-  ${SHARED_SRC_FILES}
-  src/vive_node.cpp
-  src/vr_interface.cpp
 )
 
 # VIVE pose:
