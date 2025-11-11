@@ -1,8 +1,8 @@
 # vive_ur10e
-## Controlling UR10e with HTC VIVE - ROS Noetic
-- This package is inspired and developed based on Mr. Jonathan Österberg's Master Thesis for the **publisher** [vive_ros](https://github.com/Machine-Jonte/vive_ros) and [robosavvy](https://github.com/robosavvy) for **connecting to VR server** [vive_ros](https://github.com/robosavvy/vive_ros). The credits go to Mr.Österberg and [robosavvy](https://github.com/robosavvy).
-- This version will subscribe to the publisher and perform **transformation** from VIVE Controller's pose to UR10e's pose using **tf2_ros** (Python)
-- The publisher only publish information from the right controller (pose and trigger button)
+## Controlling UR10e with HTC VIVE - tf2_ros - ROS Noetic
+- This package is inspired and developed based on [robosavvy](https://github.com/robosavvy) for **Connection with VR server** [vive_ros](https://github.com/robosavvy/vive_ros) and Mr. Jonathan Österberg's Master Thesis for the **Publisher** ([moveit_vive](https://github.com/Machine-Jonte/moveit_vive)). 
+- This Package will perform **Transformation** from VIVE Controller's pose frame to UR10e's base_link using **tf2_ros** (Python) instead of hard coding for robot's pose, but calibration is needed.
+- The version only publish information from the **right controller (pose and trigger button)**.
 ### Calibration VIVE position to UR10e postition 
 You will need to adjust these values in the code for the calibration. It's based on the position of the controller to the robot. Just try and change it until it works perfectly:
 ```
@@ -54,3 +54,5 @@ Close the server:
 ```
 rosrun vive_ur10e close_servervr.sh
 ```
+### Result:
+![](https://github.com/trungtran22/vive_ur10e/blob/main/docs/vive_controlling.gif)
