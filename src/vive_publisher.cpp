@@ -110,12 +110,8 @@ void GetControllerState(VR_ControlHandler &controlHandler)
                 {
                     HmdVector3_t controller_position = GetPosition(trackedDevicePose.mDeviceToAbsoluteTracking);
                     HmdQuaternion_t controller_orientation = GetRotation(trackedDevicePose.mDeviceToAbsoluteTracking);
-                    
-                    // Use "base" as the frame_id, as in the original code
                     controlHandler.pController[VRC_RIGHT]->pose.msg = MakeGeometryMsgFromData(controller_position, controller_orientation, "vive_world");
                 }
-                
-                // Since we found the right controller, we can stop looping
                 break; 
             }
         }  
