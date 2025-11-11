@@ -55,4 +55,4 @@ Close the server:
 rosrun vive_ur10e close_servervr.sh
 ```
 ### Result:
-![](https://github.com/trungtran22/vive_ur10e/blob/main/docs/vive_controlling.gif)
+![](https://github.com/trungtran22/vive_ur10e/blob/main/docs/vive_controlling_2.gif)
